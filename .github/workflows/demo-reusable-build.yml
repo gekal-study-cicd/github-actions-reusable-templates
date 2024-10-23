@@ -1,0 +1,22 @@
+# .github/workflows/demo-reusable-build.yml
+name: Reusable Build Workflow
+
+on:
+  workflow_call:
+    inputs:
+      build-args:
+        required: false
+        type: string
+    secrets:
+      token:
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run build script
+        run: |
+          echo "Running build with ${{ inputs.build-args }}"

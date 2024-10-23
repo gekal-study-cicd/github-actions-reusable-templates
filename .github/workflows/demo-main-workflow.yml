@@ -1,0 +1,22 @@
+# .github/workflows/main-workflow.yml
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/demo-reusable-build.yml
+    with:
+      build-args: "--build"
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    uses: ./.github/workflows/demo-reusable-deploy.yml
+    with:
+      deploy-args: "--deploy"
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
