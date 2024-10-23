@@ -15,7 +15,7 @@ on:
         required: true
 
 jobs:
-  info:
+  deploy-info:
     uses: gekal-study-cicd/github-actions-reusable-templates/.github/workflows/demo-reusable-build.yml@main
     with:
       github-event-name: ${{ inputs.github-event-name }}
@@ -23,7 +23,7 @@ jobs:
       token: ${{ secrets.token }}
 
   build:
-    needs: [ info ]
+    needs: [ deploy-info ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
