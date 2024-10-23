@@ -15,19 +15,15 @@ on:
         required: true
 
 jobs:
+  info:
+    uses: ./.github/workflows/demo-reusable-info.yml
+    with:
+      github-event-name: ${{ inputs.github-event-name }}
+
   build:
+    needs: [ info ]
     runs-on: ubuntu-latest
     steps:
-      - name: Print github event name
-        run: |
-          echo "The github event name is: ${{ github.event_name }}"
-      - name: Print github event name in inputs
-        run: |
-          echo "The github event name is: ${{ inputs.github-event-name }}"
-      - name: Check if event name matched
-        if: github.event_name == inputs.github-event-name
-        run: |
-          echo "Github event name matched."
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Run build script
