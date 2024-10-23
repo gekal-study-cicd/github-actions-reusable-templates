@@ -7,7 +7,15 @@ on:
       - main
 
 jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print github event name
+        run: |
+          echo "The github event name is: ${{ github.event_name }}"
+
   build:
+    needs: [ info ]
     uses: ./.github/workflows/demo-reusable-build.yml
     with:
       build-args: "--build"
