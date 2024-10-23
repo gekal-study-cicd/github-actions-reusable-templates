@@ -24,6 +24,10 @@ jobs:
       - name: Print github event name in inputs
         run: |
           echo "The github event name is: ${{ inputs.github-event-name }}"
+      - name: Check if event name matched
+        if: github.event_name == inputs.github-event-name
+        run: |
+          echo "Github event name matched."
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Run deploy script
