@@ -18,7 +18,7 @@ jobs:
     needs: [ info ]
     uses: ./.github/workflows/demo-reusable-build.yml
     with:
-      github-event-name: ${{ github.event_name }}
+      github-event-name: pull_request
       build-args: "--build"
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
@@ -28,6 +28,6 @@ jobs:
     uses: ./.github/workflows/demo-reusable-deploy.yml
     with:
       deploy-args: "--deploy"
-      github-event-name: ${{ github.event_name }}
+      github-event-name: push
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
