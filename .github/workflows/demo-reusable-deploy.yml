@@ -15,15 +15,13 @@ on:
         required: true
 
 jobs:
-#  deploy-info:
-#    uses: ./.github/workflows/demo-reusable-info.yml
-#    with:
-#      github-event-name: ${{ inputs.github-event-name }}
-#    secrets:
-#      token: ${{ secrets.token }}
+  deploy-info:
+    uses: ./.github/workflows/demo-reusable-info.yml
+    with:
+      github-event-name: ${{ inputs.github-event-name }}
 
   build:
-#    needs: [ deploy-info ]
+    needs: [ deploy-info ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

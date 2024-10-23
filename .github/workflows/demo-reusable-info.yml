@@ -7,8 +7,6 @@ on:
       github-event-name:
         required: false
         type: string
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   nested-info:
