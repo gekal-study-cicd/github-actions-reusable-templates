@@ -17,6 +17,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Run build script
+      - name: Run deploy script
         run: |
-          echo "Running build with ${{ inputs.deploy-args }}"
+          echo "Running deploy with ${{ inputs.deploy-args }}"
+      - name: Say hello from deploy script
+        run: |
+          echo "Say hello from deploy script"
