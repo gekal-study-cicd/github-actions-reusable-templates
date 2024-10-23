@@ -19,7 +19,7 @@ jobs:
 
   build:
     needs: [ info ]
-    uses: ./.github/workflows/demo-reusable-build.yml
+    uses: gekal-study-cicd/github-actions-reusable-templates/.github/workflows/demo-reusable-build.yml@feature/test
     with:
       github-event-name: pull_request
       build-args: "--build"
@@ -28,7 +28,7 @@ jobs:
 
   deploy:
     needs: [ build ]
-    uses: ./.github/workflows/demo-reusable-deploy.yml
+    uses: gekal-study-cicd/github-actions-reusable-templates/.github/workflows/demo-reusable-deploy.yml@feature/test
     with:
       deploy-args: "--deploy"
       github-event-name: push
