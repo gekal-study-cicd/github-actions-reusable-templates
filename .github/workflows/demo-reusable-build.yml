@@ -16,7 +16,7 @@ on:
 
 jobs:
   info:
-    uses: gekal-study-cicd/github-actions-reusable-templates/.github/workflows/demo-reusable-build.yml@feature/test
+    uses: gekal-study-cicd/github-actions-reusable-templates/.github/workflows/demo-reusable-build.yml@main
     with:
       github-event-name: ${{ inputs.github-event-name }}
 
